@@ -1,28 +1,31 @@
 #ifndef EMPREGADO_H
 #define EMPREGADO_H
 
-#include <iostream>
 #include <string>
 
 class Empregado {
-	
+
   public:
-    double salarioHora;  
-    double quotaMensalVendas;  
 
-
-    double pagamentoMes(double horasTrabalhadas) {
- 
-      double t = horasTrabalhadas;
-	  
-	  //Cálculo de hora extra (+50% se horasTrabalhadas > 8)
-      if (horasTrabalhadas > 8) {
-        double x = horasTrabalhadas - 8;
-        t += x / 2;
+    // construtor
+    Empregado(std::string nome, double salarioHora) 
+      : _nome(nome), _salarioHora(salarioHora) 
+      {
       }
-	  return t * salarioHora;
-    }
+
+    void SetNome(std::string nome);
+    std::string GetNome();
+
+    void SetSalarioHora(double salarioHora);
+    double GetSalarioHora();
+
+    double pagamentoMes(double horasTrabalhadas);
 	
+  private:
+
+    std::string _nome;
+    double _salarioHora;  
+  
 };
 
 #endif
